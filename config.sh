@@ -25,8 +25,7 @@ function run_tests {
       # bug affects certain combinations of numpy and scipy on os x
       pip install -U numpy scipy
     fi
-    pip install nose
     echo "testing"
     # only run one test to avoid exceeding travis time limit
-    nosetests pystan.tests.test_basic_array
+    JOBLIB_MULTIPROCESSING=0 python -m unittest pystan.tests.test_basic_array
 }
