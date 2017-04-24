@@ -7,7 +7,7 @@ function pre_build {
     if [ -n "$IS_OSX" ]; then
         export CC=clang
         export CXX=clang++
-        brew install pkg-config
+        install_pkg_config
     fi
     echo "IN pre_build!"
     SRC_DIR=pystan
