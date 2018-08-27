@@ -1,6 +1,6 @@
 [submodule "multibuild"]
 	path = multibuild
-	url = https://github.com/ariddell/multibuild.git
+	url = https://github.com/matthew-brett/multibuild.git
 [submodule "pystan"]
 	path = pystan
 	url = https://github.com/stan-dev/pystan
