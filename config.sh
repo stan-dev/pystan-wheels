@@ -19,7 +19,8 @@ function run_tests {
     python -c "import sys; print('\n'.join(sys.path))"
     python -c "import pystan"
     pip install -r $SRC_DIR/requirements.txt
-    pip install -r $SRC_DIR/test-requirements.txt
+    # uncomment line after 2.18 released
+    # pip install -r $SRC_DIR/test-requirements.txt
     if [ -n "$IS_OSX" ]; then
       # bug affects certain combinations of numpy and scipy on os x
       pip install -U numpy scipy
