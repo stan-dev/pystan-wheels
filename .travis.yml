@@ -1,13 +1,12 @@
 env:
     global:
         - REPO_DIR=pystan
-        - BUILD_COMMIT=v2.17.1.0
+        - BUILD_COMMIT=v2.18.0.0
         - BUILD_DEPENDS=Cython
         - TEST_DEPENDS=
         - PLAT=x86_64
         - UNICODE_WIDTH=32
         - NP_BUILD_DEP=1.8.2
-        - MANYLINUX_URL=https://nipy.bic.berkeley.edu/manylinux
         - WHEELHOUSE_UPLOADER_USERNAME=pystan-worker
         - WHEELHOUSE_UPLOADER_REGION=IAD
         # Following generated with
@@ -63,15 +62,18 @@ matrix:
         - PLAT=i686
         - NP_BUILD_DEP="1.9.3"
     - os: osx
+      osx_image: xcode8
       language: objective-c
       env:
         - MB_PYTHON_VERSION=2.7
     - os: osx
+      osx_image: xcode8
       language: objective-c
       env:
         - MB_PYTHON_VERSION=3.5
         - NP_BUILD_DEP="1.9.3"
     - os: osx
+      osx_image: xcode8
       language: objective-c
       env:
         - MB_PYTHON_VERSION=3.6
