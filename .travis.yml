@@ -109,7 +109,7 @@ script:
 after_success:
     # Upload wheels to Rackspace container
     - pip install wheelhouse-uploader
-    - python -m wheelhouse_uploader upload --local-folder
+    - travis_wait 40 python -m wheelhouse_uploader upload --local-folder
           ${TRAVIS_BUILD_DIR}/wheelhouse/
           --no-update-index
           --region=${WHEELHOUSE_UPLOADER_REGION}
