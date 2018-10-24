@@ -61,6 +61,15 @@ matrix:
         - MB_PYTHON_VERSION=3.6
         - PLAT=i686
         - NP_BUILD_DEP="1.9.3"
+    - os: linux
+      env:
+        - MB_PYTHON_VERSION=3.7
+        - NP_BUILD_DEP=1.14.5
+    - os: linux
+      env:
+        - MB_PYTHON_VERSION=3.7
+        - NP_BUILD_DEP=1.14.5
+        - PLAT=i686
     - os: osx
       osx_image: xcode8
       language: objective-c
@@ -78,7 +87,12 @@ matrix:
       env:
         - MB_PYTHON_VERSION=3.6
         - NP_BUILD_DEP="1.9.3"
-
+    - os: osx
+      language: generic
+      env:
+        - MB_PYTHON_VERSION=3.7
+        - NP_BUILD_DEP=1.14.5
+        - NP_TEST_DEP=1.14.5
 before_install:
     - BUILD_DEPENDS="numpy==$NP_BUILD_DEP ${BUILD_DEPENDS}"
     - source multibuild/common_utils.sh
