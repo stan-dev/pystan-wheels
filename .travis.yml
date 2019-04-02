@@ -1,7 +1,7 @@
 env:
     global:
         - REPO_DIR=pystan
-        - BUILD_COMMIT=v2.18.1.0
+        - BUILD_COMMIT=v2.19.0.0
         - BUILD_DEPENDS=Cython
         - TEST_DEPENDS=
         - PLAT=x86_64
@@ -9,6 +9,8 @@ env:
         - NP_BUILD_DEP=1.8.2
         - WHEELHOUSE_UPLOADER_USERNAME=pystan-worker
         - WHEELHOUSE_UPLOADER_REGION=IAD
+        # custom manylinux image with newer gcc
+        - DOCKER_IMAGE=tktechdocker/manylinux:gcc8.3.0
         # Following generated with
         # travis encrypt -r stan-dev/pystan-wheels WHEELHOUSE_UPLOADER_SECRET=<the api key>
         - secure: "RPK/AsxmDNiiJ5WZwRr8oN5Ybj+/IaCNp/zF8ZwOO4XXG0RF56n1fGeqW+tfHhsOjjwBZtYmQSqSDrcd3cQw564yoBpbTy1YIFPMVP5gELFE4xw9A7KGOcGJ22RMNbqAq4esl8YqOLVjLsFQbx0aCrcRripnj0tjK/6nOemYt6+Oo8rm2SZjRnclmE7UsVSoYYll/cE+H/wTLZo3nHnRl6JZUcTa5dQ6i/GUR+kMzA7u4yGI6n16THeBIVI6dAOgabmInahZad6v7EwUWGZrwUHBmQmZhqMkPU9YVEd3I4MUgJ/9acl4ezlQuEZ4CfagSKqWMUpa1nqjsuNf374wZRi3jv4urTd6ouk+32TkFBQDHrBpdSCRgzn1Vp9Pogs4sThIgUOSEDx90nS9lhmQ5EFm8fIz2W4h1Relo0ra+FKvahIBpMCSW20Ozty4GiyY4bIYt9vzSZCblp5HlxWF5UW1zRIExtJvSipSEHElk8SvFryunFacqt2T36OeaYhp2mA5LGqTcNWMTTNsM4Z0Vw7CzeB9KOgTT1FRKVjM9oiVO9blAj0TkseBYnR0PuQ6EdHmNq8bO+oupaafca/cq6j7GRiv5n7pL66LV75xv+8gQ4VpLY6Z31+DRZ74eh/nobsIJobYz6H5N8wjhuGZAtMHIeisZrdjWLOGiqGa9KY="

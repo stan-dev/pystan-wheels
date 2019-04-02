@@ -10,5 +10,8 @@ all works.
 
 *Differences from the standard ``multibuild`` instructions are noted in this section.**
 
-Stan version 2.18 and higher requires C++11. In ``env_vars.sh`` we ``export MACOSX_DEPLOYMENT_TARGET=10.9``
+Stan version 2.19 and higher requires C++14. In ``env_vars.sh`` we ``export MACOSX_DEPLOYMENT_TARGET=10.9``
 so that ``clang`` will use ``libc++`` for the C++ standard library.
+
+We also use a custom `xenial` image because to even test pystan we need a
+version of gcc more recent than the one that ships with trusty.
