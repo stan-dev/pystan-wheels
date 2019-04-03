@@ -20,7 +20,6 @@ language: python
 cache:
   - pip
 python: 3.5
-sudo: required
 dist: trusty
 services: docker
 
@@ -54,13 +53,11 @@ matrix:
       env:
         - MB_PYTHON_VERSION=2.7
     - os: osx
-      osx_image: xcode8
       language: objective-c
       env:
         - MB_PYTHON_VERSION=3.5
         - NP_BUILD_DEP="1.9.3"
     - os: osx
-      osx_image: xcode8
       language: objective-c
       env:
         - MB_PYTHON_VERSION=3.6
@@ -79,6 +76,16 @@ before_install:
 install:
     # Maybe get and clean and patch source
     - clean_code $REPO_DIR $BUILD_COMMIT
+    # remove unused files from pystan/pystan/stan to save space and avoid problems on manylinux1
+    # these cleaning steps may be removed after manylinux1 is retired. See this issue for more:
+    # https://github.com/pypa/auditwheel/issues/145
+    # cleanup steps start
+    - find pystan/pystan/stan/lib -type d -iname doc -print0 | xargs -0 rm -rf
+    - find pystan/pystan/stan/lib/stan_math/lib -type d -name test -print0 | xargs -0 rm -rf
+    - find pystan/pystan/stan/lib/stan_math/lib -maxdepth 2 -type d -name libs -print0 | xargs -0 rm -rf
+    - find pystan/pystan/stan/lib/stan_math/lib -maxdepth 2 -type d -name tools -print0 | xargs -0 rm -rf
+    # cleanup steps end
+    # osx wheels take a particularly long time to build
     - travis_wait 40 build_wheel $REPO_DIR $PLAT
 
 script:
