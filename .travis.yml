@@ -47,6 +47,10 @@ matrix:
       env:
         - MB_PYTHON_VERSION=3.7
         - NP_BUILD_DEP=1.14.5
+    - os: linux
+      env:
+        - MB_PYTHON_VERSION=3.8
+        - NP_BUILD_DEP=1.14.5
     - os: osx
       language: objective-c
       env:
@@ -65,6 +69,11 @@ matrix:
       language: generic
       env:
         - MB_PYTHON_VERSION=3.7
+        - NP_BUILD_DEP=1.14.5
+    - os: osx
+      language: generic
+      env:
+        - MB_PYTHON_VERSION=3.8
         - NP_BUILD_DEP=1.14.5
 before_install:
     - BUILD_DEPENDS="numpy==$NP_BUILD_DEP ${BUILD_DEPENDS}"
