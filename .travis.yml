@@ -90,7 +90,12 @@ install:
   - find pystan/pystan/stan/lib/stan_math/lib -maxdepth 2 -type d -name tools -print0 | xargs -0 rm -rf
   # cleanup steps end
   # osx wheels take a particularly long time to build
-  - travis_wait 40 build_wheel $REPO_DIR $PLAT
+  - |
+    if [ ${TRAVIS_OS_NAME} = "osx" ]; then
+      travis_wait 60 build_wheel $REPO_DIR
+    else
+      build_wheel $REPO_DIR
+    fi
 
 script:
   - install_run $PLAT
