@@ -2,6 +2,8 @@
 Building and uploading pystan wheels
 ####################################
 
+NOTE: This repository is no longer used. It was used for building PyStan 2 wheels.
+
 See https://travis-ci.org/MacPython/matplotlib-wheels for details on how this
 all works.
 
